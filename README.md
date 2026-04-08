@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>PS3 Online Brasil</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.5;
+    text-align: center;
+  }
+  header {
+    background: #111;
+    padding: 20px;
+    border-bottom: 2px solid #00f0ff;
+  }
+  header h1 {
+    font-size: 20px;
+    color: #00f0ff;
+    text-shadow: 2px 2px #ff00ff;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    background: #111;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border: 2px solid #00f0ff;
+    transition: all 0.2s;
+  }
+  nav a:hover {
+    background: #00f0ff;
+    color: #111;
+    border-color: #ff00ff;
+    text-shadow: none;
+  }
+  main {
+    padding: 20px;
+    background: #111111;
+  }
+  .section-title {
+    color: #ff00ff;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #ff00ff;
+  }
+  .games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .game-card {
+    background: #1a1a1a;
+    border: 2px solid #00f0ff;
+    padding: 15px;
+    text-align: center;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .game-card:hover {
+    background: #222;
+    border-color: #ff00ff;
+  }
+  .game-card h3 {
+    color: #00f0ff;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  .game-card p {
+    font-size: 10px;
+    color: #fff;
+  }
+  .tutorials {
+    margin-top: 30px;
+  }
+  .tutorials ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .tutorials li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #00f0ff;
+    font-size: 10px;
+    color: #fff;
+  }
+  #mini-jogo {
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px solid #ff00ff;
+    background: #1a1a1a;
+  }
+  #mini-jogo button {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  #gameover {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: red;
+    font-family: "Courier New", monospace;
+    animation: piscar 0.5s infinite;
+    text-shadow: 0 0 10px red;
+  }
+  @keyframes piscar {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  footer {
+    background: #111;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid #00f0ff;
+    font-size: 8px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎮 PS3 Online Brasil 🎮</h1>
+</header>
+
+<nav>
+  <a href="#games">Jogos</a>
+  <a href="#tutorials">Tutoriais</a>
+  <a href="#mini-jogo">Mini Jogo</a>
+</nav>
+
+<main>
+  <section id="games">
+    <h2 class="section-title">🕹️ Jogos Ativos 🕹️</h2>
+    <div class="games-container">
+      <div class="game-card">
+        <h3>Call of Duty: Black Ops</h3>
+        <p>Horário de pico: 18:00 - 22:00</p>
+        <p></p>
+      </div>
+      <div class="game-card">
+        <h3>Minecraft</h3>
+        <p>Horário de pico: Quase todos horários </p>
+        <p></p>
+      </div>
+      <div class="game-card">
+        <h3>Call Of Duty: Black Ops </h3>
+        <p>Horário de pico: 19:00 - 22:00</p>
+        <p></p>
+      </div>
+      <div class="game-card">
+        <h3>Red Dead Redemption</h3>
+        <p>Horário de pico: Quase todos os horário</p>
+        <p></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tutorials" class="tutorials">
+    <h2 class="section-title">📚 Tutoriais 📚</h2>
+    <ul>
+      <li>Criar conta PSN: Configurações > Conta > Criar nova conta.</li>
+      <li>Evitar erros de conexão: usar cabo de rede, IP manual, reiniciar modem, verificar DNS.</li>
+      <li>Melhor horário para jogar online: 18:00 - 22:00</li>
+      <li>Dicas para PS3 online: atualizar firmware, manter Wi-Fi estável, conferir NAT.</li>
+    </ul>
+  </section>
+
+  <section id="mini-jogo">
+    <h2>🎮 Mini Jogo: Clique Rápido</h2>
+    <p>Clique o máximo que puder em 10 segundos!</p>
+    <button onclick="clicar()">CLIQUE AQUI</button>
+    <p>Pontos: <span id="pontos">0</span></p>
+    <p>Tempo: <span id="tempo">10</span></p>
+    <div id="gameover">💀 GAME OVER 🎮</div>
+  </section>
+</main>
+
+<footer>
+  © 2026 PS3 Online Brasil – Todos os direitos reservados
+</footer>
+
+<script>
+let pontos = 0;
+let tempo = 10;
+let jogando = false;
+
+function clicar() {
+  if (!jogando) {
+    reiniciar();
+    jogando = true;
+    document.getElementById("gameover").style.display = "none";
+    iniciarTempo();
+  }
+  pontos++;
+  document.getElementById("pontos").innerText = pontos;
+}
+
+function iniciarTempo() {
+  let contador = setInterval(() => {
+    tempo--;
+    document.getElementById("tempo").innerText = tempo;
+
+    if (tempo <= 0) {
+      clearInterval(contador);
+      jogando = false;
+      document.getElementById("gameover").style.display = "block";
+    }
+  }, 1000);
+}
+
+function reiniciar() {
+  pontos = 0;
+  tempo = 10;
+  document.getElementById("pontos").innerText = pontos;
+  document.getElementById("tempo").innerText = tempo;
+}
+</script>
+
+</body>
+</html>
